@@ -78,39 +78,39 @@ rightB.addEventListener("mouseleave", function(e){
     key.arrow_right = false;
 });
 
-leftB.addEventListener("touchdown", function(e){
+leftB.addEventListener("touchstart", function(e){
     key.arrow_left = true;
 });
 
-rightB.addEventListener("touchdown", function(e){
+rightB.addEventListener("touchstart", function(e){
     key.arrow_right = true;
 });
 
-jumpB.addEventListener("touchdown", function(e){
+jumpB.addEventListener("touchstart", function(e){
     key.arrow_up = true;
 });
 
-leftB.addEventListener("touchup", function(e){
+leftB.addEventListener("touchend", function(e){
     key.arrow_left = false;
 });
 
-rightB.addEventListener("touchup", function(e){
+rightB.addEventListener("touchend", function(e){
     key.arrow_right = false;
 });
 
-jumpB.addEventListener("touchup", function(e){
+jumpB.addEventListener("touchend", function(e){
     key.arrow_up = false;
 });
 
-leftB.addEventListener("touchleave", function(e){
+leftB.addEventListener("touchcancel", function(e){
     key.arrow_left = false;
 });
 
-jumpB.addEventListener("touchleave", function(e){
+jumpB.addEventListener("touchcancel", function(e){
     key.arrow_up = false;
 });
 
-rightB.addEventListener("touchleave", function(e){
+rightB.addEventListener("touchcance;", function(e){
     key.arrow_right = false;
 });
 
