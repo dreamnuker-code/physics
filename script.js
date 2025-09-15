@@ -1,11 +1,13 @@
 const block = document.getElementById("block");
 const frame = document.getElementById("main-frame");
+let bonk = new Audio("bonk.mp3")
 
-let x = frame.clientTop;
-let y = frame.clientLeft;
-let gravY = 0;
-let g = 1.051;
-let dx = 2;
+let x = frame.clientWidth / 2 - block.offsetWidth / 2;
+let y = frame.clientHeight / 2 - block.offsetHeight / 2;
+let dy = 0
+let Fg = 0.194
+let dx = 0
+let canJump = false;
 
 let key = {
     arrow_up: false,
@@ -37,26 +39,33 @@ document.addEventListener("keyup", function(e){
     };
 })
 
-async function gravityWork() {
+async function game() {
     x += dx;
-    gravY += g;
-    y += gravY;
+    dy += Fg
+    y += dy
+    
 
-    if (x + block.offsetWidth > frame.clientWidth ) {
+
+    /* Gravity */
+    if (y + block.offsetHeight > frame.clientHeight) {
+        y = frame.clientHeight - block.offsetHeight;
+        dy = -dy * 0.4
+        canJump = true;
+    }
+    if (x + block.offsetWidth > frame.clientWidth) {
         x = frame.clientWidth - block.offsetWidth;
         dx = 0;
     };
-    if (y + block.offsetHeight > frame.clientHeight) {
-        y = frame.clientHeight - block.offsetHeight;
-        gravY = 0;
-    };
-    if (x + block.offsetWidth < frame.clientLeft + block.offsetWidth ) {
+    if (x + block.offsetWidth < frame.clientLeft + block.offsetWidth) {
         x = frame.clientLeft;
         dx = 0;
-    };
-    if (key.arrow_up && gravY == 0) {
-        gravY = -20;
-    };
+    }
+
+    /* Controls */
+    if (key.arrow_up && canJump) {
+        canJump = false;
+        dy = -8.9;
+    }
     if (key.arrow_left) {
         dx = -5;
     }
@@ -65,12 +74,12 @@ async function gravityWork() {
     }
     else {
         dx = 0;
-    };
+    }
 
     block.style.top = y + "px";
-    block.style.left = x + "px";
+    block.style.left = x + 'px';
 
-    requestAnimationFrame(gravityWork);
+    requestAnimationFrame(game)
 }
 
-gravityWork();
+game()
