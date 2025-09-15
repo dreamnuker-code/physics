@@ -78,6 +78,42 @@ rightB.addEventListener("mouseleave", function(e){
     key.arrow_right = false;
 });
 
+leftB.addEventListener("touchdown", function(e){
+    key.arrow_left = true;
+});
+
+rightB.addEventListener("touchdown", function(e){
+    key.arrow_right = true;
+});
+
+jumpB.addEventListener("touchdown", function(e){
+    key.arrow_up = true;
+});
+
+leftB.addEventListener("touchup", function(e){
+    key.arrow_left = false;
+});
+
+rightB.addEventListener("touchup", function(e){
+    key.arrow_right = false;
+});
+
+jumpB.addEventListener("touchup", function(e){
+    key.arrow_up = false;
+});
+
+leftB.addEventListener("touchleave", function(e){
+    key.arrow_left = false;
+});
+
+jumpB.addEventListener("touchleave", function(e){
+    key.arrow_up = false;
+});
+
+rightB.addEventListener("touchleave", function(e){
+    key.arrow_right = false;
+});
+
 
 async function game() {
     x += dx;
