@@ -110,7 +110,7 @@ jumpB.addEventListener("touchcancel", function(e){
     key.arrow_up = false;
 });
 
-rightB.addEventListener("touchcance;", function(e){
+rightB.addEventListener("touchcancel", function(e){
     key.arrow_right = false;
 });
 
