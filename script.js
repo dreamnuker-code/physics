@@ -1,5 +1,8 @@
 const block = document.getElementById("block");
 const frame = document.getElementById("main-frame");
+const leftB = document.getElementById("left")
+const jumpB = document.getElementById("jump")
+const rightB = document.getElementById("right")
 let bonk = new Audio("bonk.mp3")
 
 let x = frame.clientWidth / 2 - block.offsetWidth / 2;
@@ -38,6 +41,43 @@ document.addEventListener("keyup", function(e){
         key.arrow_right = false;
     };
 })
+
+leftB.addEventListener("mousedown", function(e){
+    key.arrow_left = true;
+});
+
+rightB.addEventListener("mousedown", function(e){
+    key.arrow_right = true;
+});
+
+jumpB.addEventListener("mousedown", function(e){
+    key.arrow_up = true;
+});
+
+leftB.addEventListener("mouseup", function(e){
+    key.arrow_left = false;
+});
+
+rightB.addEventListener("mouseup", function(e){
+    key.arrow_right = false;
+});
+
+jumpB.addEventListener("mouseup", function(e){
+    key.arrow_up = false;
+});
+
+leftB.addEventListener("mouseleave", function(e){
+    key.arrow_left = false;
+});
+
+jumpB.addEventListener("mouseleave", function(e){
+    key.arrow_up = false;
+});
+
+rightB.addEventListener("mouseleave", function(e){
+    key.arrow_right = false;
+});
+
 
 async function game() {
     x += dx;
